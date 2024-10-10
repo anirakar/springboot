@@ -5,6 +5,8 @@ import com.ashan.example.spring.jpa.repository.EmployeeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class EmployeeService {
@@ -13,5 +15,9 @@ public class EmployeeService {
 
     public Employee saveEmployee(Employee employee) {
         return repository.save(employee);
+    }
+
+    public List<Employee> getAllEmployee() {
+        return repository.get();
     }
 }

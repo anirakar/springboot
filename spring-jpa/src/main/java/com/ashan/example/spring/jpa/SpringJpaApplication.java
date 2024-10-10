@@ -23,13 +23,12 @@ public class SpringJpaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Employee employee = new Employee();
-		employee.setName("Alex week");
-		employee.setSalary(2000);
-		employee.setJoiningDate(LocalDate.now());
-
-		Employee savedEmployee = employeeService.saveEmployee(employee);
-		log.info("Saved employee {}", savedEmployee);
-
+//		Employee employee = new Employee();
+//		employee.setName("Alex week");
+//		employee.setSalary(2000);
+//		employee.setJoiningDate(LocalDate.now());
+//
+//		Employee savedEmployee = employeeService.saveEmployee(employee);
+//		log.info("Saved employee {}", savedEmployee);
 	}
 }

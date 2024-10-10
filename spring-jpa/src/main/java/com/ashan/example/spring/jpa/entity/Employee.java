@@ -9,7 +9,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
 public class Employee {
 
