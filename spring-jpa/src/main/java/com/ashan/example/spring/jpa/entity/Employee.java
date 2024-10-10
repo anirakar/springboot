@@ -6,10 +6,9 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Entity
-@Getter
-@Setter
-@ToString
+@Getter @Setter
 @NoArgsConstructor
+@ToString
 public class Employee {
 
     @Id
