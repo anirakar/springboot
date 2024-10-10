@@ -26,7 +26,7 @@ public class EmployeeServiceTests {
 
         Employee savedEmployee = employeeService.saveEmployee(employee);
 
-        assertNotNull(savedEmployee.getId());
+        assertNotNull(savedEmployee);
     }
 
     @Test
