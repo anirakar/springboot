@@ -4,9 +4,12 @@ import com.ashan.example.spring.jpa.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -16,13 +19,12 @@ public class PersonJdbcRepository {
     JdbcTemplate jdbcTemplate;
 
     public List<Person> findAll(){
-        return jdbcTemplate.query("select * from person", new BeanPropertyRowMapper<>(Person.class));
+        return jdbcTemplate.query("select * from person", new PersonRowMapper());
     }
 
     public Person findById(int id) {
         return jdbcTemplate.queryForObject("select * from person where id=?",
-                new Object[]{id},
-                new BeanPropertyRowMapper<Person>(Person.class));
+                new BeanPropertyRowMapper<Person>(Person.class), id);
     }
 
     public int deleteById(int id) {
@@ -41,5 +43,18 @@ public class PersonJdbcRepository {
                 new Object[]{person.getName(), person.getLocation(),
                         new Date(person.getBirthDate().getTime()),
                         person.getId()});
+    }
+
+    class PersonRowMapper implements RowMapper<Person> {
+
+        @Override
+        public Person mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Person person = new Person();
+            person.setId(rs.getInt("id"));
+            person.setName(rs.getString("name"));
+            person.setLocation(rs.getString("location"));
+            person.setBirthDate(rs.getTimestamp("birth_date"));
+            return person;
+        }
     }
 }

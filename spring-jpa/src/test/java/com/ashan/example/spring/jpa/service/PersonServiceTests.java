@@ -17,7 +17,6 @@ public class PersonServiceTests {
     @Autowired
     private PersonService personService;
 
-
     @Test
     public void shouldGetAllPerson() {
         List<Person> allPerson = personService.getAllPerson();
