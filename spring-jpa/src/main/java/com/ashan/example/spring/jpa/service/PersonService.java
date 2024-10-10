@@ -20,4 +20,16 @@ public class PersonService {
     public Person getOnePerson(int id) {
         return repository.findById(id);
     }
+
+    public int deleteOnePerson(int id) {
+        return repository.deleteById(id);
+    }
+
+    public int createPerson(Person person) {
+        return repository.insert(person);
+    }
+
+    public int updatePerson(Person person) {
+        return repository.update(person);
+    }
 }
