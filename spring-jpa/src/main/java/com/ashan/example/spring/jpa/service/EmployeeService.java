@@ -13,11 +13,11 @@ public class EmployeeService {
 
     private EmployeeRepository repository;
 
-    public Employee saveEmployee(Employee employee) {
-        return repository.save(employee);
+    public Employee createEmployee(Employee employee) {
+        return repository.insert(employee);
     }
 
     public List<Employee> getAllEmployee() {
-        return repository.get();
+        return repository.findAll();
     }
 }

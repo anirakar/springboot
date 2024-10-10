@@ -18,36 +18,36 @@ public class EmployeeServiceTests {
     EmployeeService employeeService;
 
     @Test
-    public void testSaveEmployee(){
+    public void shouldCreateAEmployee(){
         Employee employee = new Employee();
         employee.setName("Alex week");
         employee.setSalary(2000);
         employee.setJoiningDate(LocalDate.now());
 
-        Employee savedEmployee = employeeService.saveEmployee(employee);
+        Employee savedEmployee = employeeService.createEmployee(employee);
 
         assertNotNull(savedEmployee);
     }
 
     @Test
-    public void testGetAllEmployee() {
+    public void shouldGetAllEmployee() {
         Employee meera = new Employee();
         meera.setName("Meera Joshi");
         meera.setSalary(5000);
         meera.setJoiningDate(LocalDate.parse("2023-02-17"));
-        employeeService.saveEmployee(meera);
+        employeeService.createEmployee(meera);
 
         Employee arjun = new Employee();
         arjun.setName("Arjun Patel");
         arjun.setSalary(4000);
         arjun.setJoiningDate(LocalDate.parse("2022-03-10"));
-        employeeService.saveEmployee(arjun);
+        employeeService.createEmployee(arjun);
 
         Employee rahul = new Employee();
         rahul.setName("Rahul Sharma");
         rahul.setSalary(6000);
         rahul.setJoiningDate(LocalDate.parse("2022-03-10"));
-        employeeService.saveEmployee(rahul);
+        employeeService.createEmployee(rahul);
 
         List<Employee> allEmployee = employeeService.getAllEmployee();
 

@@ -32,14 +32,14 @@ public class PersonJdbcRepository {
     }
 
     public int insert(Person person) {
-        return jdbcTemplate.update("INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE) VALUES(?, ?, ?, ?)",
+        return jdbcTemplate.update("insert into person(id, name, location, birth_date) VALUES(?, ?, ?, ?)",
                 new Object[]{person.getId(),
                 person.getName(), person.getLocation(),
                 new Date(person.getBirthDate().getTime())});
     }
 
     public int update(Person person) {
-        return jdbcTemplate.update("UPDATE PERSON SET NAME=?, LOCATION=?, BIRTH_DATE=? WHERE ID=?",
+        return jdbcTemplate.update("update person set name=?, location=?, birth_date=? where id=?",
                 new Object[]{person.getName(), person.getLocation(),
                         new Date(person.getBirthDate().getTime()),
                         person.getId()});

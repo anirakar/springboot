@@ -15,19 +15,19 @@ public class EmployeeRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Transactional
-    public Employee save(Employee employee) {
-        entityManager.persist(employee);
-        return employee;
-    }
-
-    public List<Employee> get() {
+    public List<Employee> findAll() {
         // JPQL query to retrieve all Employee records
         String jpql = "SELECT e FROM Employee e";
         Query query = entityManager.createQuery(jpql, Employee.class);
 
         // Execute query and get results
         return query.getResultList();
+    }
+
+    @Transactional
+    public Employee insert(Employee employee) {
+        entityManager.persist(employee);
+        return employee;
     }
 
 }
