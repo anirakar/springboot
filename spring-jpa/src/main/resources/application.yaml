@@ -7,6 +7,20 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: ''
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        generate_statistics: true
   h2:
     console:
       enabled: true
+
+logging:
+  level:
+    org.hibernate:
+      stat: debug
+      type: trace
